@@ -8,7 +8,7 @@ import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
 	logoutUser, setLoggedInUser, loginUser, registerUser, getLoggedInUser,
-	getSnacks, getSingleSnack, getSnackToppings
+	getSnacks, getSingleSnack, getSnackToppings, getToppings, useToppings
 } from "./data/apiManager.js";
 
 
@@ -110,7 +110,12 @@ const showLoginRegister = () => {
 }
 
 const showNavBar = () => {
-	applicationElement.innerHTML += NavBar();
+	getToppings()
+		.then (() => {
+			const menu = useToppings()
+			applicationElement.innerHTML += NavBar(menu);
+		})
+
 }
 
 const showSnackList = () => {
