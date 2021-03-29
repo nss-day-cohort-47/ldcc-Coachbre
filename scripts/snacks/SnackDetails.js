@@ -1,4 +1,13 @@
-export const SnackDetails = (snackObject) => {
+export const SnackDetails = (snackObject, toppingsArray) => {
+	console.log(toppingsArray)
+
+	let toppingsHTML = "";
+	//Loop over the array of posts and for each one, invoke the Post component which returns HTML representation
+	for (const toppingObject of toppingsArray) {
+		//what is a postObject?
+		toppingsHTML += `${toppingObject.topping.name}, `
+	}
+	console.log(toppingsHTML)
 	return `
 	<div class="col">
 		<div class="card shadow-sm" >
@@ -15,7 +24,7 @@ export const SnackDetails = (snackObject) => {
 						<div class="col col-details">Season: ${snackObject.season.name}</div>
 					</div>
 					<div class="row row-cols-1">
-						<div class="col col-details">${snackObject.toppings}</div>
+						<div class="col col-details">${toppingsHTML}</div>
 					</div>
 				</div>
 			  	

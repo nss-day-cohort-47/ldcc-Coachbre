@@ -41,7 +41,6 @@ export const registerUser = (userObj) => {
 		.then(response => response.json())
 		.then(parsedUser => {
 
-			debugger
 			setLoggedInUser(parsedUser);
 			return getLoggedInUser();
 		})
@@ -71,5 +70,10 @@ export const getSnacks = () => {
 
 export const getSingleSnack = (snackId) => {
 	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season`)
+	.then(response => response.json())
+}
+
+export const getSnackToppings = (snackId) => {
+	return fetch(`${apiURL}/snackToppings/?snackId=${snackId}&_expand=topping`)
 	.then(response => response.json())
 }
