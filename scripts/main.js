@@ -40,6 +40,7 @@ applicationElement.addEventListener("click", event => {
 		const userObject = {
 			name: document.querySelector("input[name='registerName']").value,
 			email: document.querySelector("input[name='registerEmail']").value,
+			admin: false
 		}
 	
 		registerUser(userObject)

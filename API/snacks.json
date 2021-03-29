@@ -437,14 +437,22 @@
       "id": 1
     },
     {
-      "name": "Bre",
+      "name": "bre",
       "email": "bre@bre.com",
+      "admin": false,
       "id": 2
+    },
+    {
+      "name": "nala",
+      "email": "nala@nala.com",
+      "admin": false,
+      "id": 4
     },
     {
       "name": "Shannon",
       "email": "shannon@shannon.com",
-      "id": 3
+      "admin": false,
+      "id": 5
     }
   ]
 }

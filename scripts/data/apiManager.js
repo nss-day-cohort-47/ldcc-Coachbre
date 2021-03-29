@@ -40,6 +40,8 @@ export const registerUser = (userObj) => {
 	})
 		.then(response => response.json())
 		.then(parsedUser => {
+
+			debugger
 			setLoggedInUser(parsedUser);
 			return getLoggedInUser();
 		})
