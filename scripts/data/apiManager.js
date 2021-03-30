@@ -51,6 +51,8 @@ export const registerUser = (userObj) => {
 
 let snackCollection = [];
 
+let toppingCollection = [];
+
 export const useSnackCollection = () => {
   //Best practice: we don't want to alter the original state, so
   //make a copy of it and then return it

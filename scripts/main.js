@@ -109,14 +109,12 @@ const showLoginRegister = () => {
 	applicationElement.innerHTML += `${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
 }
 
-const showNavBar = () => {
-	getToppings()
-		.then (() => {
-			const menu = useToppings()
+const showNavBar = (menu) => {
+	
 			applicationElement.innerHTML += NavBar(menu);
-		})
+		}
 
-}
+
 
 const showSnackList = () => {
 	getSnacks().then(allSnacks => {
@@ -130,12 +128,16 @@ const showFooter = () => {
 }
 
 const startLDSnacks = () => {
+	getToppings()
+		.then (() => {
+			const menu = useToppings()
+			
 	applicationElement.innerHTML = "";
-	showNavBar();
+	showNavBar(menu);
 	applicationElement.innerHTML += `<div id="mainContent"></div>`;
 	showSnackList();
 	showFooter();
-
+	})
 }
 
 checkForUser();

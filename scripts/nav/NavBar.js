@@ -4,7 +4,7 @@ import { getLoggedInUser, useToppings} from "../data/apiManager.js"
 
 export const NavBar = (menu) => {
 	//only show navItems and addTypeButton if user is logged in
-	
+
 	const navItems = getLoggedInUser().id ? `
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -17,8 +17,7 @@ export const NavBar = (menu) => {
 		<li class="nav-item ms-1">
 			<select class="form-select form-select btn-info" aria-label="Select A Topping">
 				<option selected>Select A Topping</option>
-				<option value="1">one</option>
-				
+			${dropdownOptions(menu)}	
 			</select>
 		</li>
 		<li class="nav-item ms-1">
@@ -46,4 +45,14 @@ export const NavBar = (menu) => {
 	</nav>
 	${addTypeButton}
 	`
+}
+
+
+// function for drop down
+
+const dropdownOptions = (menu) => {
+	let menuArrray = menu.map(menuItem => {
+		return `<option value="item">${menuItem.name}</option>`
+	})
+	return menuArrray;
 }
